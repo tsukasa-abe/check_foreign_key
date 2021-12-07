@@ -5,7 +5,7 @@ require_relative "lib/check_foreign_key/version"
 Gem::Specification.new do |spec|
   spec.name = "check_foreign_key"
   spec.version = CheckForeignKey::VERSION
-  spec.authors = ["阿部司"]
+  spec.authors = ["tsukasa abe"]
   spec.email = ["destaque1216@gmail.com"]
 
   spec.summary = "check_foreign_key gem"
@@ -27,8 +27,7 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
   end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.executables = 'check_key'
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
