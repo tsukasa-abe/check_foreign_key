@@ -8,11 +8,7 @@ module CheckForeignKey
 
   class << self
     def check_key
-      fk_tables = []
-      fk_tables = foreign_key_tables
-
-      fk_groups = {}
-      fk_groups = foreign_key_groups(fk_tables)
+      fk_groups = foreign_key_groups(foreign_key_tables)
 
       check_for_associations(fk_groups)
     end
@@ -49,7 +45,7 @@ module CheckForeignKey
     end
 
     def put_recommended_dependent(from_table, to_table)
-      p "#{from_table.name}に外部キー制約ついていますが#{to_table}側の定義でdependetオプションがついていません。大丈夫ですか？"
+      p "#{from_table.name}に外部キー制約がついていますが#{to_table}側の定義でdependetオプションがついていません。大丈夫ですか？"
     end
   end
 end
