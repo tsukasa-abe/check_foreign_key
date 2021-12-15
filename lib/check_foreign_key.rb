@@ -37,7 +37,7 @@ module CheckForeignKey
         # memo: アソシエーションで関連しないdependent optionを定義していた場合下記のconstantizeでクラスを呼び出し際に（ActiveRecord::Associations::Builder::Associationのprivate methodの）check_dependent_optionsでエラーになる
         to_table_associations = to_table.classify.constantize.reflect_on_all_associations
         to_table_associations.each do |to_association|
-          unless from_tables.include?(to_association.name) && to_association.options.present?
+          unless from_tables.include?(to_association.name) && to_association.options.keys.include?(:dependent)
             put_recommended_dependent(to_association, to_table)
           end
         end
